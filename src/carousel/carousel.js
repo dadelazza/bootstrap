@@ -61,7 +61,7 @@ angular.module('ui.bootstrap.carousel', ['ui.bootstrap.transition'])
       self.currentSlide = nextSlide;
       currentIndex = nextIndex;
       //if noloop is enabled, stop the loop at the end
-      if ($scope.noLoop === "yes" && currentIndex == slides.length -1){
+      if ($scope.noLoop === "yes" && currentIndex == slides.length - 1){
         isPlaying = false;
       }
       //every time you change slides, reset the timer        
