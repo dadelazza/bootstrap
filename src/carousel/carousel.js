@@ -60,7 +60,11 @@ angular.module('ui.bootstrap.carousel', ['ui.bootstrap.transition'])
       }
       self.currentSlide = nextSlide;
       currentIndex = nextIndex;
-      //every time you change slides, reset the timer
+      //if noloop is enabled, stop the loop at the end
+      if ($scope.noLoop === "yes" && currentIndex == slides.length -1){
+        isPlaying = false;
+      }
+      //every time you change slides, reset the timer        
       restartTimer();
     }
     function transitionDone(next, current) {
@@ -165,7 +169,8 @@ angular.module('ui.bootstrap.carousel', ['ui.bootstrap.transition'])
     templateUrl: 'template/carousel/carousel.html',
     scope: {
       interval: '=',
-      noTransition: '='
+      noTransition: '=',
+      noLoop: '@'
     }
   };
 }])
